@@ -147,9 +147,9 @@ namespace PKISharp.WACS.Plugins.ValidationPlugins.DnsMadeEasy
                 if (response.StatusCode == HttpStatusCode.Created)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    //_logService.Information("DnsMadeEasy Created Responded with: {0}", content);
-                    //_logService.Information("Waiting for 30 seconds");
-                    //await Task.Delay(30000);
+                    _log.Information("DnsMadeEasy Created Responded with: {0}", content);
+                    _log.Information("Waiting for 30 seconds as the new TXT record is not created instantly");
+                    await Task.Delay(30000);
                 }
                 else
                 {
